@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="A browsable, attributed field reference to prompt-injection intents, techniques, evasions, and inputs.">
+  <meta property="og:title" content="Zeroth Index — map the attack paths">
+  <meta property="og:description" content="Explore a field reference to prompt-injection patterns and compose your own analyst hypotheses.">
+  <meta property="og:image" content="assets/1777-celestial-map-of-the-northern-hemisphere.jpg">
+  <title>Zeroth Index — map the attack paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="Zeroth Index home">Zeroth Index</a>
+    <nav aria-label="Main navigation">
+      <a href="#index">Index</a>
+      <a href="#path-builder">Path builder</a>
+      <a href="#source">Source</a>
+    </nav>
+    <a class="nav-action" href="#index">Explore index <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 class="hero-title lines" id="hero-title">
+        <span class="line"><span data-line style="--i:0">Map the</span></span>
+        <span class="line"><span data-line style="--i:1">attack paths</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p>A field reference to prompt-injection patterns, arranged for people who test AI systems.</p>
+        <a class="button" href="#index">Explore the index <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-counts" aria-label="Index contents">
+        <p><strong data-total-count>172</strong><span>entries</span></p>
+        <p><strong>4</strong><span>lenses</span></p>
+        <p><strong>CC BY 4.0</strong><span>source data</span></p>
+      </div>
+    </section>
+
+    <section class="catalog section-light" id="index" aria-labelledby="catalog-title">
+      <div class="section-intro" data-reveal>
+        <h2 id="catalog-title">Search the index</h2>
+        <p>Find a pattern by name, reference code, delivery path, or the words used in other frameworks.</p>
+      </div>
+
+      <div class="catalog-shell">
+        <div class="catalog-controls">
+          <label class="search-field" data-ui>
+            <span class="visually-hidden">Search entries</span>
+            <span class="search-mark" aria-hidden="true">⌕</span>
+            <input id="search" type="search" placeholder="Try “indirect injection” or PIT-T-70" autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+          <label class="delivery-field" data-ui>
+            <span class="visually-hidden">Filter by delivery</span>
+            <select id="delivery-filter">
+              <option value="all">Any delivery</option>
+              <option value="direct">Direct</option>
+              <option value="indirect">Indirect</option>
+              <option value="either">Either</option>
+              <option value="local">Local access</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="pillar-tabs" role="group" aria-label="Filter by lens">
+          <button class="pillar-tab is-active" type="button" data-category="all" aria-pressed="true">All <span data-tab-count="all">172</span></button>
+          <button class="pillar-tab" type="button" data-category="intents" aria-pressed="false">Intents <span data-tab-count="intents">27</span></button>
+          <button class="pillar-tab" type="button" data-category="techniques" aria-pressed="false">Techniques <span data-tab-count="techniques">70</span></button>
+          <button class="pillar-tab" type="button" data-category="evasions" aria-pressed="false">Evasions <span data-tab-count="evasions">63</span></button>
+          <button class="pillar-tab" type="button" data-category="inputs" aria-pressed="false">Inputs <span data-tab-count="inputs">12</span></button>
+        </div>
+
+        <div class="catalog-meta">
+          <p id="result-count" aria-live="polite">Loading entries…</p>
+          <p>Choose an entry to inspect its aliases and examples.</p>
+        </div>
+
+        <div class="catalog-layout">
+          <div class="result-column">
+            <ol class="result-list" id="result-list" aria-label="Matching taxonomy entries"></ol>
+            <button class="more-button" id="show-more" type="button" hidden>Show more entries</button>
+            <p class="empty-state" id="empty-state" hidden>No entries match that search. Try another phrase or clear a filter.</p>
+          </div>
+          <aside class="entry-detail" id="entry-detail" aria-live="polite" aria-label="Selected entry"></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="lenses" id="lenses" aria-labelledby="lenses-title">
+      <div class="lenses-heading" data-reveal>
+        <h2 id="lenses-title">Four ways in</h2>
+        <p>Each lens asks a different question. Use them together to make a test plan precise.</p>
+      </div>
+      <div class="lens-list">
+        <button class="lens-row" type="button" data-lens="intents" data-reveal>
+          <span class="lens-name">Intents</span>
+          <span class="lens-count">27 entries</span>
+          <span class="lens-question">What does the attacker want?</span>
+          <span class="lens-arrow" aria-hidden="true">↘</span>
+        </button>
+        <button class="lens-row" type="button" data-lens="techniques" data-reveal>
+          <span class="lens-name">Techniques</span>
+          <span class="lens-count">70 entries</span>
+          <span class="lens-question">How is the model manipulated?</span>
+          <span class="lens-arrow" aria-hidden="true">↘</span>
+        </button>
+        <button class="lens-row" type="button" data-lens="evasions" data-reveal>
+          <span class="lens-name">Evasions</span>
+          <span class="lens-count">63 entries</span>
+          <span class="lens-question">How might a payload slip past filters?</span>
+          <span class="lens-arrow" aria-hidden="true">↘</span>
+        </button>
+        <button class="lens-row" type="button" data-lens="inputs" data-reveal>
+          <span class="lens-name">Inputs</span>
+          <span class="lens-count">12 entries</span>
+          <span class="lens-question">Where does the instruction arrive?</span>
+          <span class="lens-arrow" aria-hidden="true">↘</span>
+        </button>
+      </div>
+      <p class="lens-note">“LOCAL” marks techniques that require access to model weights or internals; they do not apply to a black-box API.</p>
+    </section>
+
+    <section class="path-section section-light" id="path-builder" aria-labelledby="path-title">
+      <div class="path-heading" data-reveal>
+        <h2 id="path-title">Compose a test path</h2>
+        <p>Pair one entry from each lens to outline a scenario worth reviewing.</p>
+      </div>
+      <div class="path-builder">
+        <div class="path-controls" data-ui>
+          <label>Intent<select data-pillar="intents" aria-label="Choose an attack intent"></select></label>
+          <label>Technique<select data-pillar="techniques" aria-label="Choose a technique"></select></label>
+          <label>Evasion<select data-pillar="evasions" aria-label="Choose an evasion"></select></label>
+          <label>Input<select data-pillar="inputs" aria-label="Choose an input"></select></label>
+        </div>
+        <div class="path-result" data-ui>
+          <p id="path-summary" class="path-summary"></p>
+          <p class="hypothesis-note">This is a draft hypothesis. The source taxonomy does not validate connections between entries.</p>
+          <div class="path-actions">
+            <button class="button button-dark" type="button" id="copy-path">Copy path</button>
+            <p id="copy-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+      <p class="path-caveat">Use the combination to frame a human test plan. The site does not generate payloads or execute tests.</p>
+    </section>
+
+    <section class="charts" aria-labelledby="charts-title">
+      <div class="charts-copy" data-reveal>
+        <h2 id="charts-title">A map is a way of seeing</h2>
+        <p>The index borrows its visual language from old celestial charts: each point belongs to a larger pattern, but the lines between points need interpretation.</p>
+        <p>These archival maps chart stars, not AI behavior. They are here as an honest metaphor for classification.</p>
+      </div>
+      <figure class="chart-film" data-reveal>
+        <video controls preload="none" playsinline poster="assets/gaia-star-map-poster.jpg" aria-label="Gaia spacecraft crossing the night sky during observations for a three-dimensional star map">
+          <source src="assets/gaia-star-map.webm" type="video/webm">
+          This browser cannot play the embedded WebM clip.
+        </video>
+        <figcaption><span>Gaia crossing the night sky</span><span>ESOcast · 2019</span></figcaption>
+      </figure>
+      <div class="chart-gallery">
+        <figure class="chart chart-main" data-reveal>
+          <img src="assets/planisph-ri-c-leste.jpg" width="1920" height="1312" alt="A richly illustrated 1670 celestial map with two circular star charts" decoding="async">
+          <figcaption><span>Planisphæri cœleste</span><span>Frederik de Wit · 1670</span></figcaption>
+        </figure>
+        <figure class="chart chart-secondary" data-reveal>
+          <img src="assets/1750-star-chart-of-the-constellations-libra.jpg" width="1920" height="1633" alt="A hand-coloured 1750 chart of Libra, Cancer, and neighboring constellations" loading="lazy" decoding="async">
+          <figcaption><span>Celestial Atlas</span><span>John Bevis · 1750</span></figcaption>
+        </figure>
+        <figure class="chart chart-tertiary" data-reveal>
+          <img src="assets/1776-star-chart-of-the-constellation-leo.jpg" width="1920" height="1545" alt="A 1776 chart showing Leo and Lynx among plotted stars" loading="lazy" decoding="async">
+          <figcaption><span>Leo and Lynx</span><span>John Flamsteed · 1776</span></figcaption>
+        </figure>
+        <figure class="chart chart-fourth" data-reveal>
+          <img src="assets/1777-celestial-map-of-the-northern-hemisphere.jpg" width="1920" height="1508" alt="A 1777 illustrated map of the northern celestial hemisphere" loading="lazy" decoding="async">
+          <figcaption><span>Northern hemisphere</span><span>Antionia Zatta · 1777</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="source-section" id="source" aria-labelledby="source-title">
+      <div class="source-copy" data-reveal>
+        <h2 id="source-title">Trace every source</h2>
+        <p>The taxonomy data is adapted from the Arcanum Prompt Injection Taxonomy. Its entries remain under CC BY 4.0 and are attributed to Jason Haddix and Arcanum Information Security.</p>
+        <a class="source-link" href="https://github.com/Arcanum-Sec/arc_pi_taxonomy" target="_blank" rel="noreferrer">Read the source taxonomy <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="source-facts" data-reveal>
+        <p><strong>What this is</strong><span>A searchable reference and planning aid.</span></p>
+        <p><strong>What this is not</strong><span>A scanner, benchmark, or guarantee that a system is safe.</span></p>
+        <p><strong>How to cite the data</strong><span>Haddix, J. (2026). Arcanum Prompt Injection Taxonomy, v1.6.1. CC BY 4.0.</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a class="wordmark" href="#top">Zeroth Index</a>
+      <nav aria-label="Footer navigation">
+        <a href="#index">Index</a>
+        <a href="#path-builder">Path builder</a>
+        <a href="https://github.com/eforus-overseer/zeroth-index">GitHub repository</a>
+      </nav>
+    </div>
+    <p class="footer-wordmark" aria-hidden="true">ZEROTH INDEX</p>
+    <p class="footer-legal">A field reference for human-led AI security work.</p>
+    <p class="image-credits">Pictures: <a href="https://commons.wikimedia.org/wiki/File:Planisph%C3%A6ri_c%C5%93leste.jpg">“Planisphæri cœleste”</a> by Frederik de Wit; <a href="https://commons.wikimedia.org/wiki/File:1750_star_chart_of_the_constellations_Libra,_Cancer_and_neighboring_stars_from_John_Bevis%27_Celestial_Atlas.jpg">“Celestial Atlas”</a> by John Bevis; <a href="https://commons.wikimedia.org/wiki/File:1776_star_chart_of_the_constellation_Leo,_from_Fortin%27s_Atlas_Celeste_de_Flamsteed.jpg">“Leo and Lynx”</a> by John Flamsteed; <a href="https://commons.wikimedia.org/wiki/File:1777_celestial_map_of_the_Northern_Hemisphere_by_Antionia_Zatta.jpg">“Northern Hemisphere”</a> by Antionia Zatta. All public domain via Wikimedia Commons. Motion clip: <a href="https://commons.wikimedia.org/wiki/File:ESOcast_200_Light.webm">“ESOcast 200 Light”</a> by the European Southern Observatory, CC BY 4.0; <a href="https://creativecommons.org/licenses/by/4.0/">license</a>.</p>
+    <p class="data-credit">Taxonomy data: <a href="https://github.com/Arcanum-Sec/arc_pi_taxonomy">Arcanum Prompt Injection Taxonomy</a>, CC BY 4.0. Adapted with attribution.</p>
+  </footer>
+</body>
+</html>
