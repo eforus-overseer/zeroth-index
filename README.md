@@ -62,3 +62,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Changes to the reused taxonomy must pres
 ## License
 
 Original Zeroth Index code is released under the MIT License. Reused taxonomy data and archival images have the separate terms described above and in [DATA-ATTRIBUTION.md](DATA-ATTRIBUTION.md).
+
+
+<!-- codex-pixel-art -->
+## Pixel art
+
+![Pixel art for zeroth-index](assets/pixel-art.svg)
+
+A small visual signature for this repository.
